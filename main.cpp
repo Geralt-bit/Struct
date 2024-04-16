@@ -44,7 +44,7 @@ struct Date {
     }
 
     int calculateDifference(const Date& date) const {
-        long int date1 = year * 365 + day;
+        long long date1 = year * 365 + day;
         for (int i = 0; i < month - 1; i++) {
             if (i == 1) {
                 if ((year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)) {
@@ -62,8 +62,8 @@ struct Date {
             }
         }
 
-        long int date2 = date.year * 365 + date.day;
-        for (int i = 0; i < date.month - 1; ++i) {
+        long long date2 = date.year * 365 + date.day;
+        for (int i = 0; i < date.month - 1; i++) {
             if (i == 1) {
                 if ((date.year % 4 == 0 and date.year % 100 != 0) or (date.year % 400 == 0)) {
                     date2 += 29;
@@ -117,14 +117,14 @@ int main() {
 
         cout << "Do you want to enter another date? (y/n): ";
         cin >> choice;
-    } while (choice == 'y' || choice == 'Y');
+    } while (choice == 'y' or choice == 'Y');
 
     if (dates.size() >= 2) {
         // Sorting the dates
         sort(dates.begin(), dates.end());
 
         // Displaying the sorted dates
-        cout << "\nSorted Dates:" << endl;
+        cout << "Sorted Dates:" << endl;
         for (const auto& date : dates) {
             date.printDate();
         }
